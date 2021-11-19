@@ -1,19 +1,37 @@
-<ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+
+  <ion-toolbar color="dark">
+
     <ion-title>
       Pendientes
     </ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+
+<ion-content color="dark">
+
   <ion-header collapse="condense">
-    <ion-toolbar>
+
+    <ion-toolbar color="dark">
       <ion-title size="large"> Pendientes </ion-title>
     </ion-toolbar>
+
   </ion-header>
   
-  <h1> Hola Mundo! </h1>
-  
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list color="dark">
+
+    <ion-item *ngFor="let lista of _deseosService.listas" detail color="dark">
+
+      <ion-label>
+        {{ lista.titulo }}
+      </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
 </ion-content>
