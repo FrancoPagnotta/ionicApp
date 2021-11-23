@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button color="primary" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title> Listas </ion-title>
+    <ion-title> {{ lista.titulo }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,8 +11,8 @@
   
   <ion-list>
     <ion-item color="dark">
-      <ion-label position="floating"> Nueva lista </ion-label>
-      <ion-input typ="text"></ion-input>
+      <ion-label position="floating"> Nuevo item </ion-label>
+      <ion-input typ="text" [(ngModel)]="nombreItem" (keyup.enter)="agregarItem()"></ion-input> <!--los (emiten un evento) y los [escuchan un evento] por lo que el [(ngModel)] emite y escucha eventos o sea es bidireccional. Lo que la persona escriba lo vamos a tener en nombreItem -->
     </ion-item>
   </ion-list>
 
@@ -20,9 +20,9 @@
     <ion-label> Tareas por hacer </ion-label>
   </ion-list-header>
 
-  <ion-item color="dark">
-    <ion-checkbox color="primary" slot="start"></ion-checkbox>
-    <ion-label> </ion-label>
+  <ion-item color="dark" *ngFor="let item of lista.items">
+    <ion-checkbox color="primary" slot="start" [(ngModel)]="item.completado"></ion-checkbox>
+    <ion-label> {{ item.descripcion }} </ion-label>
   </ion-item>
 
 </ion-content>

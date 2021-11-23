@@ -16,8 +16,14 @@ export class DeseosService {
     const nuevaLista = new Lista(titulo);
     this.listas.push(nuevaLista);
     this.guardarStorage();
-    
+
     return nuevaLista.id;
+  }
+
+  obtenerLista(id: string | number) {
+    id = Number(id);
+    
+    return this.listas.find(listaData => listaData.id === id); // Retornamos la lista que contenga el id que pasamos como parametro. Recordar que en el caso de las funciones flechas no hace falta poner el return para retornar algo ya que este esta de forma implicita, a diferencia de las funciones comunes en donde si debemos poner el return.
   }
 
   guardarStorage() {
