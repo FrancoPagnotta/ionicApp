@@ -16,14 +16,17 @@ export class DeseosService {
     const nuevaLista = new Lista(titulo);
     this.listas.push(nuevaLista);
     this.guardarStorage();
+    
+    return nuevaLista.id;
   }
 
-  guardarStorage(){
+  guardarStorage() {
     localStorage.setItem('data', JSON.stringify(this.listas)); //JSON.stringify lo que hace es convertir un objeto en un json valido de tipo string
   }
 
-  cargarStorage(){
+  cargarStorage() {
     if (localStorage.getItem('data')) this.listas = JSON.parse(localStorage.getItem('data')); // Validamos que exista la data en el localStorage y si existe inicializamos this.listas con esta data, de lo contrario no hacemos nada y this.listas queda vacio porque cuando lo declaramos lo inicializamos vacio. Esta validacion la hacemos porque de lo contrario, si solo hacemos JSON.parse(localStorage.getItem('data')) y la data no existe, el JSON.parse devolveria null y eso nos daria un error.
   } 
+
 }
 

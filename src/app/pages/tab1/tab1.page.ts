@@ -42,7 +42,10 @@ export class Tab1Page {
 
             console.log('Data del formulario --> ', data);
             if (data.titulo.length === 0) return;
-            else this._deseosService.crearLista(data.titulo);
+            else {
+              const listaId = this._deseosService.crearLista(data.titulo);
+              this._router.navigateByUrl(`/tabs/tab1/agregar/${listaId}`);
+            };
 
           }
         }
