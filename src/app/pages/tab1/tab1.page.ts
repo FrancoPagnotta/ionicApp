@@ -46,14 +46,18 @@ export class Tab1Page {
               const listaId = this._deseosService.crearLista(data.titulo);
               this._router.navigateByUrl(`/tabs/tab1/agregar/${listaId}`);
             };
-
+            
           }
         }
       ]
     });
-  
+    
     await alert.present();
     
+  }
+  
+  verLista(id: number | string) {
+    this._router.navigateByUrl(`/tabs/tab1/agregar/${id}`);
   }
   
 }
