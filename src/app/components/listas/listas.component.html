@@ -1,0 +1,21 @@
+  <ion-list color="dark">
+
+    <ion-item-sliding *ngFor="let lista of _deseosService.listas | filtro : terminada; let i = index"> <!-- Pasamos como argumento al pipe, la variable terminada, que es una variable que lleva como valor true cuando una lista esta terminada o false cuando no -->
+
+      <ion-item (click)="verLista(lista.id)" detail color="dark">
+        <ion-label>
+          {{ lista.titulo }}
+        </ion-label>
+        <ion-note slot="end" color="primary">
+          {{ lista.items.length }} 
+        </ion-note>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="borrarLista(lista)" color="danger" >
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>

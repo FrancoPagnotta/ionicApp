@@ -20,6 +20,11 @@ export class DeseosService {
     return nuevaLista.id;
   }
 
+  borrarLista(lista: Lista) {
+    this.listas = this.listas.filter(listaData => listaData.id !== lista.id); // filter retorna un nuevo array con los elementos que cumplen con la condicion que indicamos en la callback
+    this.guardarStorage();
+  }
+
   obtenerLista(id: string | number) {
     id = Number(id);
 
